@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Neighborhood Map</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bs_css/bootstrap.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Aldrich|Orbitron" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+  <div class="container">
+
+    <header class="header-row row">
+      <div class="col-md-3 filter-area">Your neighboorhood</div>
+      <div class="col-md-9 align-middle"><i class="fa fa-bars menu-icon"></i></div>
+    </header>
+
+    <div  class="locations-row row">
+      <div class="col-md-3 locations filter-area">
+
+        <div class="input-group">
+          <!-- <input id="filterForm" class="form-control" placeholder="Filter" data-bind="value: filter, valueUpdate: 'input'"> -->
+          <input id="filterForm" class="form-control" placeholder="Filter" data-bind="textInput: filter">
+          <span class="input-group-append">
+            <!-- <button id="filterButton" class="input-group-btn" type="button"><i class="fa fa-filter filter"></i></button> -->
+          </span>
+        </div>
+
+
+
+        <ul class="list-group" data-bind="foreach: filteredPoiList">
+          <li class="poiListEntries list-group-item" data-bind="click: $parent.highlightPoi, text: title"></li>
+        </ul>
+      </div>
+
+      <div class="col-md-9 map" id="map">
+      </div>
+    </div>
+
+    <div  class="impress-row row">
+      <footer class="col-md-12 text-center"> Impressum</footer>
+    </div>
+
+  </div>
+
+</body>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/knockout-3.4.2.js"></script>
+  <script async defer src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBbn2a9jiJoKLct7fT8xb0v_aAxXhzYjfE&v=3&callback=initMap">  </script>
+
+  <script src="js/main.js"></script>
+</html>
