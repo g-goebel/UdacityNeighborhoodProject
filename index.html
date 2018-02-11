@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bs_css/bootstrap.css">
   <link rel="stylesheet" href="css/main.css">
-  <link href="https://fonts.googleapis.com/css?family=Aldrich|Orbitron" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Aldrich" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -16,18 +16,16 @@
   <div class="container">
 
     <header class="header-row row">
-      <div class="col-md-3 filter-area">Your neighboorhood</div>
-      <div class="col-md-9 align-middle"><i class="fa fa-bars menu-icon"></i></div>
+      <div class="col-md-3 filter-area">Your neighboorhood <i id="info" class="fa fa-info infoIcon" data-toggle="modal" data-target="#infoModal"></i></div>
+      <div class="col-md-9 text-center errorMessage" id="errorMessage"></div>
     </header>
 
     <div  class="locations-row row">
       <div class="col-md-3 locations filter-area">
 
         <div class="input-group">
-          <!-- <input id="filterForm" class="form-control" placeholder="Filter" data-bind="value: filter, valueUpdate: 'input'"> -->
           <input id="filterForm" class="form-control" placeholder="Filter" data-bind="textInput: filter">
           <span class="input-group-append">
-            <!-- <button id="filterButton" class="input-group-btn" type="button"><i class="fa fa-filter filter"></i></button> -->
           </span>
         </div>
 
@@ -43,17 +41,39 @@
     </div>
 
     <div  class="impress-row row">
-      <footer class="col-md-12 text-center"> Impressum</footer>
+      <footer class="col-md-12 text-center">Udacity Neighborhood Map Project 2018, powered by Foursquare.com and Flickr.com</footer>
     </div>
-
-    <button id="btn" >clickme</button>
 
   </div>
 
-</body>
+  <!-- Modal InfoButton-->
+  <div class="modal infoModal" id="infoModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog  my-modal-shadow">
+      <div class="modal-content">
+        <div class="mt-4">
+          <h3 class="text-center infoModal">How to use the search field</h3>
+        </div>
+        <div class="modal-body infoModal">
+          You can filter for names as well as for categories:
+          <ul class="infoModal">
+            <li class="infoModal">Food</li>
+            <li class="infoModal">Leisure</li>
+            <li class="infoModal">Nightlife</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-lg btn-block" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/knockout-3.4.2.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script async defer src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBbn2a9jiJoKLct7fT8xb0v_aAxXhzYjfE&v=3&callback=initMap">  </script>
-
   <script src="js/main.js"></script>
+</body>
+
 </html>
