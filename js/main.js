@@ -64,7 +64,7 @@ function initMap() {
   vm = new MapViewModel();
   ko.applyBindings(vm);
 
-};
+}
 
 
 /**
@@ -132,7 +132,7 @@ function MapViewModel(){
     }
   });
 
-};
+}
 
 
 /**
@@ -278,7 +278,7 @@ let markerView = {
   hideAllMarkers: function(){
     markers.forEach(function(marker){
       marker.setVisible(false);
-    })
+    });
   },
 
   /**
@@ -288,7 +288,7 @@ let markerView = {
   showAllMarkers: function(){
     markers.forEach(function(marker){
       marker.setVisible(true);
-    })
+    });
   }
 
 };
@@ -321,25 +321,25 @@ let Marker = function(poi){
 
     let poiInfos = data.response.venue;
 
-    if( poiInfos.rating != undefined){
+    if( poiInfos.rating !== undefined){
       gmMarker.rating = poiInfos.rating;
     }else{
       gmMarker.rating = "n/a";
     }
 
-    if (poiInfos.description != undefined){
+    if (poiInfos.description !== undefined){
       gmMarker.description = poiInfos.description;
     }else{
       gmMarker.description = "n/a";
     }
 
-    if ((poiInfos.location != undefined) && (poiInfos.location.address != undefined)){
+    if ((poiInfos.location !== undefined) && (poiInfos.location.address !== undefined)){
       gmMarker.address = poiInfos.location.address;
     }else{
       gmMarker.address = "n/a";
     }
 
-    if ((poiInfos.popular != undefined) && (poiInfos.popular.status != undefined)){
+    if ((poiInfos.popular !== undefined) && (poiInfos.popular.status !== undefined)){
       gmMarker.open = poiInfos.popular.status;
     }else{
       gmMarker.open = "n/a";
@@ -352,13 +352,13 @@ let Marker = function(poi){
     gmMarker.address = "n/a";
     gmMarker.open = "n/a";
     logError(error);
-  })
+  });
 
   //enrich the information with an image. In the current version just the first image
   // reveived from flickr is shown
   getImagesOfVenue(poi.title())
   .then(function(images){
-    if(images != undefined){
+    if(images !== undefined){
       let farmID = images[0].getAttribute("farm");
       let serverID = images[0].getAttribute("server");
       let id = images[0].getAttribute("id");
@@ -373,7 +373,7 @@ let Marker = function(poi){
   .catch(function(error){
     gmMarker.image = "img/noImageAvailable.jpg";
     logError(error);
-  })
+  });
   return gmMarker;
 
 };
@@ -420,7 +420,7 @@ let logError = function(error){
 */
 let get = function(url){
 
-  return fetch(url)
+  return fetch(url);
 
 };
 
@@ -450,7 +450,7 @@ let getXML = function(url){
   })
   .catch(function(error){
     logError(error);
-  })
+  });
 
 };
 
@@ -475,7 +475,7 @@ let getJSON = function(_url){
   })
   .catch(function(error){
     logError(error);
-  })
+  });
 
 };
 
