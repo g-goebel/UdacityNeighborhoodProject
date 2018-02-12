@@ -77,10 +77,10 @@ function mapErrorHandling(){
   $("#mapErrorMessage").text("Unable to load map, please check your internet connection!");
   for (let counter = 0; counter < 5; counter ++){
     $("#mapErrorMessage").fadeIn(800).delay(1800).fadeOut(800);
-  };
+  }
   $("#mapErrorMessage").fadeIn(500);
 
-};
+}
 
 
 /**
