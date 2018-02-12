@@ -35,8 +35,8 @@
           <li class="poiListEntries list-group-item" data-bind="click: $parent.highlightPoi, text: title"></li>
         </ul>
       </div>
-
       <div class="col-md-9 mapStyle" id="mapID">
+        <div class="mapError" id="mapErrorMessage"></div>
       </div>
     </div>
 
@@ -72,8 +72,8 @@
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/knockout-3.4.2.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script async defer src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBbn2a9jiJoKLct7fT8xb0v_aAxXhzYjfE&v=3&callback=initMap">  </script>
   <script src="js/main.js"></script>
+  <script async defer onerror="mapErrorHandling();" src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBbn2a9jiJoKLct7fT8xb0v_aAxXhzYjfE&v=3&callback=initMap"></script>
 </body>
 
 </html>

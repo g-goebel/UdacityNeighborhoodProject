@@ -2,8 +2,8 @@
 
 const
 //default data for loading the map
-x_coord = 52.488416,
-y_coord = 13.3648,
+xCoord = 52.488416,
+yCoord = 13.3648,
 zoom_level = 16;
 
 //database for the points of interests in this area
@@ -53,7 +53,7 @@ let map, //global variable representing the map
 function initMap() {
 
   map = new google.maps.Map(document.getElementById("mapID"), {
-    center: {lat: x_coord, lng: y_coord },
+    center: {lat: xCoord, lng: yCoord },
     zoom: zoom_level
   });
 
@@ -65,6 +65,22 @@ function initMap() {
   ko.applyBindings(vm);
 
 }
+
+
+/**
+ * mapErrorHandling - this function gets called in case the map cannot be loaded
+ * properly from google and displays a message to the user.
+ *
+ */
+function mapErrorHandling(){
+
+  $("#mapErrorMessage").text("Unable to load map, please check your internet connection!");
+  for (let counter = 0; counter < 5; counter ++){
+    $("#mapErrorMessage").fadeIn(800).delay(1800).fadeOut(800);
+  };
+  $("#mapErrorMessage").fadeIn(500);
+
+};
 
 
 /**
@@ -247,6 +263,7 @@ let markerView = {
   */
   bounce: function(marker){
 
+    markerView.populateInfoWindow(marker, largeInfoWindow);
     marker.setAnimation(google.maps.Animation.BOUNCE);
     setTimeout(function(){
       marker.setAnimation(null);

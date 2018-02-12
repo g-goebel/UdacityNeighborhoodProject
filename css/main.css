@@ -28,6 +28,14 @@ body {
 
 }
 
+.mapError {
+
+font-size: 20px;
+margin-top: 20em;
+margin-left: 5em;
+
+}
+
 .locations {
 
   background-color: #333333;
